@@ -1,6 +1,6 @@
 <?php
 // Include the database connection
-include("../Register/database.php");
+include("../database/Register_database.php");
 
 // Initialize error message
 $errorMessage = '';
@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt->execute()) {
             // Optionally redirect or handle success
             echo "";
+            header("Location: homepage.php");
+            exit();
         } else {
             $errorMessage = "Error: " . $stmt->error;
         }
@@ -53,7 +55,7 @@ mysqli_close($conn);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="log.css">
+  <link rel="stylesheet" href="../CSS_STYLES/log.css">
 </head>
 <body>
   <div class="container">
@@ -75,7 +77,7 @@ mysqli_close($conn);
   <div class="secondContainer">
     <div class="child">
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <h2>Login</h2>
+        <h2>Register</h2>
         <div class="inputBox">
           <input type="email" id="email" name="email" required value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES); ?>">
           <span>Email</span>
