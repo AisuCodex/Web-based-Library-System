@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-image: url('../img/side.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps background image in place while scrolling */
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+:root {
+  --darkest-shade: #2a3417;
+  --darker-shade: #3f4a22;
+  --base-color: #556b2f;
+  --lighter-tint: #758b4d;
+  --lightest-tint: #99b27a;
+  --extra-lightest-tint: #dbe4d0;
+}
+
+.secondContainer {
+  width: 90%;
+  max-width: 500px;
+  aspect-ratio: 1;
+  position: relative;
+  max-height: 430px;
+}
+
+.child {
+  background: var(--extra-lightest-tint);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.backBtn-div {
+  text-align: right;
+}
+
+.backBtn {
+  color: var(--base-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+}
+
+.backBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.btn-div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: center;
+}
+
+.text1 {
+  color: var(--darkest-shade);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: slideDown 0.5s ease-out;
+}
+
+.btn {
+  width: 80%;
+  max-width: 250px;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--extra-lightest-tint);
+  background: var(--base-color);
+  border-radius: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: var(--base-color);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .secondContainer {
+    width: 95%;
+    aspect-ratio: auto;
+    height: 80vh;
+  }
+
+  .text1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Add smooth transition when elements load */
+.child > * {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+  animation-delay: calc(var(--order) * 0.1s);
+}
+
+.backBtn-div {
+  --order: 1;
+}
+
+.text1 {
+  --order: 2;
+}
+
+.btn:nth-of-type(1) {
+  --order: 3;
+}
+
+.btn:nth-of-type(2) {
+  --order: 4;
+}

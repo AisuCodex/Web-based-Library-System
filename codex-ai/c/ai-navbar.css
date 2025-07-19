@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100vh;
+}
+
+:root {
+  --darkest-shade: #2a3417;
+  --darker-shade: #3f4a22;
+  --base-color: #556b2f;
+  --lighter-tint: #758b4d;
+  --lightest-tint: #99b27a;
+  --extra-lightest-tint: #dbe4d0;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Space between nav links and logout button */
+  align-items: center;
+  background-color: rgb(65, 88, 19);
+  padding: 10px 20px;
+  width: 100%;
+  height: 60px;
+  position: relative; /* Position relative for the hamburger menu */
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  gap: 55px; /* Spacing between links */
+}
+
+.nav-links a {
+  color: var(--extra-lightest-tint);
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+.nav-links a:hover {
+  background-color: var(--extra-lightest-tint);
+  border-radius: 5px;
+  color: var(--darkest-shade);
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+/* Logout Button Style */
+#logout-link {
+  color: var(--extra-lightest-tint);
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 560;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+
+#logout-link:hover {
+  background-color: var(--extra-lightest-tint);
+  color: var(--darkest-shade);
+  transition: all 0.5s ease;
+}
+
+/* Mobile Menu */
+.nav-links {
+  display: flex;
+  gap: 15px; /* Adjust for mobile */
+}
+
+.hamburger-menu {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 10000000;
+}
+
+.hamburger-menu .bar {
+  background-color: var(--extra-lightest-tint);
+  height: 4px;
+  width: 30px;
+  margin: 5px 0;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.hamburger-menu.active .bar1 {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.hamburger-menu.active .bar2 {
+  opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger-menu.active .bar3 {
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.hamburger-menu .bar1,
+.hamburger-menu .bar3 {
+  position: relative;
+}
+
+.hamburger-menu .bar2 {
+  margin: 0;
+  position: relative;
+}
+
+/* Sidebar Menu */
+.side-menu {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0; /* Position it on the left side */
+  background-color: rgb(65, 88, 19);
+  color: white;
+  width: 250px;
+  height: 100%;
+  padding-top: 60px; /* Adjust based on navbar height */
+  z-index: 100;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%); /* Initially hide off the left side */
+}
+
+.side-menu.open {
+  display: block;
+  transform: translateX(0); /* Slide the menu into view from the left */
+}
+
+.side-menu a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: var(--extra-lightest-tint);
+  transition: background-color 0.3s;
+}
+
+.side-menu a:hover {
+  background-color: var(--extra-lightest-tint);
+  color: var(--darkest-shade);
+}
+
+/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 330px;
+  border-radius: 8px;
+  opacity: 0.9;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+}
+.confirmation-text {
+  color: black;
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Buttons */
+button {
+  background-color: darkolivegreen; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.cancel {
+  background-color: #f44336; /* Red */
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Media Queries */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none; /* Hide nav links on mobile */
+  }
+
+  .hamburger-menu {
+    display: flex; /* Show hamburger menu on mobile */
+  }
+
+  .side-menu {
+    display: block; /* Ensure side menu is visible on mobile */
+  }
+}

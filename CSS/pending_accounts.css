@@ -1,0 +1,357 @@
+:root {
+    --darkest-shade: #2a3417;
+    --darker-shade: #3f4a22;
+    --base-color: #556b2f;
+    --lighter-tint: #758b4d;
+    --lightest-tint: #99b27a;
+    --extra-lightest-tint: #dbe4d0;
+    --approved-color: #4CAF50;
+    --rejected-color: #f44336;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--extra-lightest-tint);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(42, 52, 23, 0.1);
+}
+
+h1 {
+    color: var(--darkest-shade);
+    margin-bottom: 30px;
+}
+
+.account-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.account-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(42, 52, 23, 0.05);
+    transition: transform 0.2s;
+}
+
+.account-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(42, 52, 23, 0.1);
+}
+
+.account-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.account-card h3 {
+    color: var(--darker-shade);
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-card p {
+    color: var(--base-color);
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.approve-btn {
+    background-color: var(--approved-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.approve-btn:hover {
+    background-color: #3d8b40;
+}
+
+.reject-btn {
+    background-color: var(--rejected-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.reject-btn:hover {
+    background-color: #d32f2f;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    background-color: var(--base-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.back-btn:hover {
+    background-color: var(--darker-shade);
+    text-decoration: none;
+    color: white;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.status-pending {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.request-time {
+    color: var(--base-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 5px 0;
+    font-style: italic;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: var(--base-color);
+    grid-column: 1 / -1;
+}
+
+.history-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.account-section {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.history-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.account-section h2 {
+    color: var(--darkest-shade);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--extra-lightest-tint);
+}
+
+.history-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(42, 52, 23, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(42, 52, 23, 0.15);
+}
+
+.history-card.approved {
+    border-left: 4px solid var(--approved-color);
+}
+
+.history-card.rejected {
+    border-left: 4px solid var(--rejected-color);
+}
+
+.history-card h3 {
+    color: var(--darkest-shade);
+    margin-bottom: 0.5rem;
+}
+
+.history-card .date {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.delete-btn {
+    background-color: var(--rejected-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+.no-accounts {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    background: var(--extra-lightest-tint);
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Student ID Image Styles */
+.student-id-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background-color: #f5f5f5;
+}
+
+.student-id-image:hover {
+    transform: scale(1.02);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #f1f1f1;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Animation */
+.modal-content {
+    animation: zoom 0.3s ease-in-out;
+}
+
+@keyframes zoom {
+    from {transform: scale(0.1)}
+    to {transform: scale(1)}
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .account-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .history-container {
+        flex-direction: column;
+    }
+
+    .history-section {
+        width: 100%;
+    }
+
+    .history-card {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Responsive adjustments for images */
+@media (max-width: 768px) {
+    .student-id-image {
+        height: 150px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+
+    .close {
+        right: 15px;
+        top: 10px;
+        font-size: 30px;
+    }
+}

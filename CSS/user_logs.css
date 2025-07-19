@@ -1,0 +1,262 @@
+:root {
+    --darkest-shade: #2a3417;
+    --darker-shade: #3f4a22;
+    --base-color: #556b2f;
+    --lighter-tint: #758b4d;
+    --lightest-tint: #99b27a;
+    --extra-lightest-tint: #dbe4d0;
+}
+
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--extra-lightest-tint);
+    margin: 0;
+    padding: 20px;
+    color: var(--darkest-shade);
+}
+
+h1 {
+    text-align: center;
+    color: var(--darkest-shade);
+    margin-bottom: 20px;
+}
+
+/* Back Button */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: var(--base-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--darker-shade);
+}
+
+/* Search Section */
+.search-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px 15px;
+    border: 1px solid var(--lighter-tint);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--base-color);
+}
+
+input[type="submit"],
+.delete-date-btn {
+    padding: 10px 20px;
+    background-color: var(--base-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover,
+.delete-date-btn:hover {
+    background-color: var(--darker-shade);
+}
+
+.delete-date-btn {
+    background-color: #dc3545;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+th {
+    background-color: var(--base-color);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--extra-lightest-tint);
+}
+
+tr:hover {
+    background-color: var(--extra-lightest-tint);
+}
+
+/* Status Badges */
+.user-type,
+.action-type {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    text-align: center;
+    min-width: 80px;
+}
+
+.admin {
+    background-color: var(--darker-shade);
+    color: white;
+}
+
+.student {
+    background-color: var(--lighter-tint);
+    color: white;
+}
+
+.login {
+    background-color: var(--base-color);
+    color: white;
+}
+
+.logout {
+    background-color: var(--darkest-shade);
+    color: white;
+}
+
+/* Delete Button */
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .search-section {
+        padding: 15px;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .form-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="submit"],
+    .delete-date-btn {
+        width: 100%;
+    }
+
+    /* Table Responsive */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid var(--lighter-tint);
+        border-radius: 8px;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        border: none;
+        border-bottom: 1px solid var(--extra-lightest-tint);
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+        color: var(--darkest-shade);
+    }
+
+    .user-type,
+    .action-type {
+        display: inline-block;
+        margin: 0;
+    }
+
+    .delete-btn {
+        display: inline-flex;
+        justify-content: center;
+        width: auto;
+        margin: 5px 0;
+    }
+}

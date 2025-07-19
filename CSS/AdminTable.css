@@ -1,0 +1,641 @@
+:root {
+    --darkest-shade: #2a3417;
+    --darker-shade: #3f4a22;
+    --base-color: #556b2f;
+    --lighter-tint: #758b4d;
+    --lightest-tint: #99b27a;
+    --extra-lightest-tint: #dbe4d0;
+  }
+  
+  /* Basic reset */
+  body,
+  h1,
+  table,
+  form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body style */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--extra-lightest-tint);
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Header style */
+  h1 {
+    text-align: center;
+    color: rgb(65, 88, 19);
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+  
+  /* Search form style */
+  form {
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  input[type='text'] {
+    padding: 10px;
+    width: 60%;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--base-color);
+    color: var(--extra-lightest-tint);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  /* Table style */
+  table {
+    width: 95%;
+    margin: 25px auto;
+    border-collapse: collapse;
+    font-size: 1.1em;
+    min-width: 200px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  table,
+  th,
+  td {
+    border: none;
+  }
+  
+  span {
+    display: none;
+  }
+  
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: var(--base-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+  }
+  
+  tr {
+    border-bottom: 1px solid var(--lighter-tint);
+    transition: background-color 0.3s ease;
+  }
+  
+  tr:last-child {
+    border-bottom: none;
+  }
+  
+  tr:nth-child(even) {
+    background-color: rgba(117, 139, 77, 0.05);
+  }
+  
+  tr:hover {
+    background-color: rgb(232, 232, 232);
+  }
+  
+  tr:active {
+    background-color: rgb(232, 232, 232);
+  }
+  
+  td {
+    color: var(--darkest-shade);
+    font-size: 0.95em;
+    border-bottom: 1px solid #dddddd;
+    vertical-align: middle;
+    text-align: center;
+  }
+  
+  /* Column width specifications */
+  table th:nth-child(1), /* ID column */
+  table td:nth-child(1) {
+      width: 5%;
+  }
+  
+  table th:nth-child(2), /* Control Number column */
+  table td:nth-child(2) {
+      width: 8%;
+  }
+  
+  table th:nth-child(3), /* Course column */
+  table td:nth-child(3) {
+      width: 8%;
+  }
+  
+  table th:nth-child(4), /* Title column */
+  table td:nth-child(4) {
+      width: 15%;
+  }
+  
+  table th:nth-child(5), /* Abstract column */
+  table td:nth-child(5) {
+      width: 40%;
+  }
+  
+  table th:nth-child(6), /* Year column */
+  table td:nth-child(6) {
+      width: 6%;
+  }
+  
+  table th:nth-child(7), /* Author column */
+  table td:nth-child(7) {
+      width: 10%;
+  }
+  
+  table th:nth-child(8), /* Actions column */
+  table td:nth-child(8) {
+      width: 8%;
+  }
+  
+  /* Abstract specific styling */
+  .abstract-text {
+    max-width: 800px;
+    margin: 15px 40px;
+    text-align: left;
+    line-height: 1.8;
+    padding: 20px 30px;
+    font-size: 1em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--darkest-shade);
+    width: calc(100% - 70px); /* Account for left and right margins */
+  }
+  
+  td:nth-child(5) { /* Abstract column */
+      padding: 20px 25px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 680px) {
+    table {
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+  
+    th {
+      display: none;
+    }
+  
+    tr {
+      display: block;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+    tr:hover {
+    }
+    td {
+      display: block;
+      text-align: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(117, 139, 77, 0.1);
+    }
+  
+    td:last-child {
+      border-bottom: none;
+    }
+  
+    span {
+      display: inline-block;
+      font-weight: 600;
+      color: var(--base-color);
+      margin-right: 10px;
+      min-width: 120px;
+    }
+  
+    .abstract-text {
+      margin-top: 10px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 6px;
+      line-height: 1.6;
+    }
+  
+    .show-abstract-btn {
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 6px;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1150px) {
+      th {
+          display: none;
+      }
+      
+      tr {
+          display: flex;
+          flex-direction: column;
+      }
+      
+      td {
+          text-align: center;
+          display: block;
+          padding: 10px;
+      }
+      
+      .abstract-text {
+          max-width: 100%;
+          text-align: justify;
+          padding: 15px 20px;
+          margin: 15px 0;
+      }
+      
+      span {
+          display: block;
+          border-radius: 5px;
+          text-align: center;
+          color: black;
+          font-weight: 700;
+          margin: 0 auto 20px auto;
+          width: 200px;
+      }
+      
+      table th, table td {
+          width: 100% !important;
+      }
+      
+      td:nth-child(5) {
+          padding: 15px;
+      }
+  }
+  
+  /* Add responsive styles */
+  @media screen and (max-width: 768px) {
+    table {
+      width: 90%;
+      margin: 25px auto;
+      font-size: 0.9em;
+    }
+    
+    th, td {
+      padding: 10px;
+    }
+  
+    input[type='text'] {
+      width: 70%;
+      margin: 0;
+      display: inline-block;
+    }
+    
+    form {
+      padding: 0 15px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    table {
+      width: 85%;
+      margin: 15px auto;
+      font-size: 0.85em;
+    }
+    
+    th, td {
+      padding: 8px 6px;
+    }
+    
+    input[type='text'] {
+      width: 65%;
+    }
+    
+    button {
+      padding: 10px 15px;
+    }
+  }
+  
+  /* Abstract button and text styling */
+  .show-abstract-btn {
+    display: block;
+    margin: 0 auto;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    width: fit-content;
+    min-width: 120px;
+  }
+  
+  .show-abstract-btn:hover {
+    background-color: var(--darker-shade);
+    transform: translateY(-1px);
+  }
+  
+  /* Mark highlight styling */
+  mark {
+    background-color: yellow;
+    color: var(--darkest-shade);
+    padding: 2px 5px;
+    border-radius: 4px;
+  }
+  
+  .title-count {
+  }
+  p {
+    color: darkolivegreen;
+  }
+  .abstract-text {
+    color: black;
+  }
+  .count-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--extra-lightest-tint); /* Light background color */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Light shadow */
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Center on the page */
+    max-width: 300px; /* Adjust width to 80% of the page */
+  }
+  
+  .count-text {
+    color: var(--darkest-shade); /* Dark text color */
+    font-size: 18px; /* Text size */
+    font-weight: 650;
+    line-height: 1.6; /* Line height for readability */
+  }
+  
+  .count-text br {
+    margin-bottom: 10px; /* Add spacing after line breaks */
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px auto;
+  }
+  
+  .pagination a {
+    margin: 10px 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: darkolivegreen;
+    background-color: WhiteSmoke;
+    border: 1px solid darkolivegreen;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination .active {
+    background-color: darkolivegreen;
+    color: white;
+  }
+  
+  .pagination a:hover {
+    opacity: 0.7;
+  }
+  
+  .scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1000;
+    display: none;
+    opacity: 0.9;
+  }
+  .scrollToTopBtn:hover {
+    opacity: 0.8;
+  }
+  .show-abstract-btn {
+    background-color: var(--base-color);
+    color: var(--extra-lightest-tint);
+    font-weight: 550;
+  }
+  #show-all-btn,
+  #show-less-btn {
+    font-weight: 600;
+  }
+  .Yes {
+    background-color: var(--base-color);
+    color: white;
+  }
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .edit-btn, .delete-btn {
+    width: 80px;
+    text-align: center;
+    padding: 8px 0;
+    text-decoration: none;
+  }
+  
+  .edit-btn {
+    display: inline-block; /* Make the anchor behave like a button */
+    background-color: var(--base-color); /* Green background */
+    color: white; /* White text */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    border: none; /* No border */
+  }
+  
+  .edit-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  
+  .create-btn-container {
+    margin-left: 10px;
+  }
+  .create-btn {
+    display: inline-block; /* Make the anchor behave like a button */
+    padding: 10px 15px; /* Add padding for a better click area */
+    background-color: var(--base-color); /* Green background */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    border: none; /* No border */
+  }
+  
+  .create-btn:hover {
+    opacity: 0.8;
+  }
+  
+  .back-btn-container {
+    margin: 10px 10px;
+  }
+  .back-btn {
+    display: inline-block; /* Make the anchor behave like a button */
+    padding: 10px 15px; /* Add padding for a better click area */
+    background-color: var(--base-color); /* Red background */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    border: none; /* No border */
+  }
+  
+  .back-btn:hover {
+    opacity: 0.8;
+  }
+  
+  /* Footer styles */
+  .footer {
+    background-color: var(--darker-shade);
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .footer p {
+    color: white;
+  }
+  
+  .footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 680px) {
+    .create-btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0;
+    }
+  }
+  
+  /* Reservation status badges */
+  .status-badge {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+  }
+  
+  .status-pending {
+    background-color: #ffd700;
+    color: #000;
+  }
+  
+  .status-approved {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .status-rejected {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  /* Reservation action buttons */
+  .approve-btn, .reject-btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .approve-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .reject-btn {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .approve-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .reject-btn:hover {
+    background-color: #da190b;
+  }
+  
+  .success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  /* Responsive design for reservation buttons */
+  @media (max-width: 680px) {
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .approve-btn, .reject-btn {
+      width: 100%;
+      margin: 2px 0;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      margin: 5px 0;
+    }
+  }
